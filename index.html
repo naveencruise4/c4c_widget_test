@@ -4,14 +4,19 @@
 <title></title>
  <meta charset="utf-8" />
 <script>
+    let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>ACCEPT</ACTION><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
+window.parent.postMessage(text,"*");
 </script>
 </head>
 <body>
+    Welcome
     <form>
         <fieldset>
-            <input type='button' id='btnopen' value='Open child' onclick='_formXMLPayload();' />
-            <input type='button' id='btnSendMsg' value='Send Message' onclick='_doCall();' />
+            <input type='button' id='btnopen' value='Event' onclick='_formXMLPayload();' />
+            <input type='button' id='btnSendMsg' value='Test' onclick='_doCall();'/>
+            <a href="login.html">Click to Login</a>
         </fieldset>
     </form>
+    <button onclick="this.innerHTML=text">Send Message</button>
 </body>
 </html>
