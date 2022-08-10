@@ -14,6 +14,12 @@ console.log(text);
 console.log(text);
     window.parent.postMessage(text,"*");
     }
+
+    function _updateActivity(){ 
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>UPDATEACTIVITY</ACTION><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><Action>END</Action>" ;
+console.log(text);
+    window.parent.postMessage(text,"*");
+    }
     
 </script>
 </head>
@@ -23,6 +29,7 @@ console.log(text);
         <fieldset>
             <input type='button' id='btnopen' value='Accept' onclick='_formXMLPayload();' />
             <input type='button' id='btnSendMsg' value='Notify' onclick='_notify();'/>
+            <input type='button' id='btnSendMsg' value='End' onclick='_updateActivity();'/>
             <a href="login.html">Click</a>
         </fieldset>
     </form>
