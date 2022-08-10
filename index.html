@@ -4,18 +4,25 @@
 <title></title>
  <meta charset="utf-8" />
 <script>
-        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>UPDATEACTIVITY</ACTION><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><Action>END</Action></payload>" ;
+    function _formXMLPayload(){ 
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>ACCEPT</ACTION><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
 console.log(text);
     window.parent.postMessage(text,"*");
-
+    }
+    function _notify(){ 
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>NOTIFY</ACTION><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
+console.log(text);
+    window.parent.postMessage(text,"*");
+    }
+    
 </script>
 </head>
 <body>
     Welcome
     <form>
         <fieldset>
-            <input type='button' id='btnopen' value='Event' onclick='_formXMLPayload();' />
-            <input type='button' id='btnSendMsg' value='Test' onclick='_doCall();'/>
+            <input type='button' id='btnopen' value='Accept' onclick='_formXMLPayload();' />
+            <input type='button' id='btnSendMsg' value='Notify' onclick='_notify();'/>
             <a href="login.html">Click</a>
         </fieldset>
     </form>
