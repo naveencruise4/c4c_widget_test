@@ -14,9 +14,15 @@ console.log(text);
 console.log(text);
     window.parent.postMessage(text,"*");
     }
+    function _transferActivity(){ 
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>TRANSFER</EventType><ANI>9976396383</ANI><TicketID>98798</TicketID><SerialNo>9971102281</SerialNo><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
+console.log(text);
+    window.parent.postMessage(text,"*");
+    }
+    
 
     function _updateActivity(){ 
-        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>UPDATEACTIVITY</ACTION><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><Action>END</Action></payload>" ;
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>UPDATEACTIVITY</EventType><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><Action>END</Action></payload> " ;
 console.log(text);
     window.parent.postMessage(text,"*");
     }
@@ -29,11 +35,12 @@ console.log(text);
         <fieldset>
             <input type='button' id='btnopen' value='Accept' onclick='_formXMLPayload();' />
             <input type='button' id='btnSendMsg' value='Notify' onclick='_notify();'/>
+            <input type='button' id='btnSendMsg' value='Transfer' onclick='_transferActivity();'/>
             <input type='button' id='btnSendMsg' value='End' onclick='_updateActivity();'/>
+           
             <a href="login.html">Click</a>
         </fieldset>
     </form>
-    <button onclick="this.innerHTML=text">Send Message</button>
-    <img src="images.png" alt="Trulli" width="400" height="222">
+    <img src="images.png" alt="Trulli" width="255" height="190">
 </body>
 </html>
