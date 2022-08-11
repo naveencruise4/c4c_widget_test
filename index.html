@@ -26,7 +26,11 @@ console.log(text);
 console.log(text);
     window.parent.postMessage(text,"*");
     }
-    
+    function _cadInfo(){ 
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>NOTIFY</ACTION><ANI>"+document.getElementById("myPhone").value+"</ANI><TicketID>"+document.getElementById("myTicketID").value+"</TicketID><SerialNo>"+document.getElementById("myServiceID").value+"</SerialNo><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID><BP>1234</BP><Custom_1>CAD4<Custom_1></payload>" ;
+console.log(text);
+    window.parent.postMessage(text,"*");
+    }
    
    function _addOnMessageEvent(){
 if(window.addEventListener){
@@ -54,15 +58,17 @@ function _onMessage(event)
     <form>
         <fieldset>
 
-            <input type="text" id="myPhone" value="123122">   
+            <input type="text" id="myPhone" value="+123122">   
             <input type='button' id='btnSendMsg' value='Dial' onclick='_notify();'/><br><br>
             <input type='button' id='btnopen' value='Accept' onclick='_formXMLPayload();' /><br><br>
             <input type="text" id="myTicketID" value="ticketID">   
             <input type="text" id="myServiceID" value="serviceID">  
             <input type='button' id='btnSendMsg' value='Transfer' onclick='_transferActivity();'/><br><br>
-            <input type='button' id='btnSendMsg' value='End' onclick='_updateActivity();'/>
+     
+
+            <input type='button' id='btnSendMsg' value='CAD' onclick='_cadInfo();'/><br>
            
-           
+            <input type='button' id='btnSendMsg' value='End' onclick='_updateActivity();'/> 
         </fieldset>
     </form>
     <img src="images.png" alt="Trulli" width="255" height="190">
