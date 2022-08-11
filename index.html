@@ -27,6 +27,26 @@ console.log(text);
     window.parent.postMessage(text,"*");
     }
     
+   
+   function _addOnMessageEvent(){
+if(window.addEventListener){
+window.addEventListener("message",this._onMessage,false);
+console.log(this._onMessage);
+
+}
+else{
+window.attachEvent("onmessage",this._onMessage);
+console.log(this._onMessage);
+}
+}
+
+function _onMessage(event)
+{
+    var phoneNumber = event.data.PhoneNumber
+}
+
+
+// <a href="login.html">Click</a>
 </script>
 </head>
 <body>
@@ -42,7 +62,7 @@ console.log(text);
             <input type='button' id='btnSendMsg' value='Transfer' onclick='_transferActivity();'/><br><br>
             <input type='button' id='btnSendMsg' value='End' onclick='_updateActivity();'/>
            
-            <a href="login.html">Click</a>
+           
         </fieldset>
     </form>
     <img src="images.png" alt="Trulli" width="255" height="190">
