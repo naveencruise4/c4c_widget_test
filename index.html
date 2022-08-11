@@ -5,24 +5,24 @@
  <meta charset="utf-8" />
 <script>
     function _formXMLPayload(){ 
-        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>ACCEPT</ACTION><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>ACCEPT</ACTION><ANI>"+document.getElementById("myPhone").value+"</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
 console.log(text);
     window.parent.postMessage(text,"*");
     }
     function _notify(){ 
-        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>NOTIFY</ACTION><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>INBOUND</EventType><ACTION>NOTIFY</ACTION><ANI>"+document.getElementById("myPhone").value+"</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
 console.log(text);
     window.parent.postMessage(text,"*");
     }
     function _transferActivity(){ 
-        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>TRANSFER</EventType><ANI>9976396383</ANI><TicketID>98798</TicketID><SerialNo>9971102281</SerialNo><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>TRANSFER</EventType><ANI>"+document.getElementById("myPhone").value+"</ANI><TicketID>"+document.getElementById("myTicketID").value+"</TicketID><SerialNo>"+document.getElementById("myServiceID").value+"</SerialNo><ExternalReferenceID>EA42D48FE</ExternalReferenceID><ExternalOriginalReferenceID>E0163EA7</ExternalOriginalReferenceID></payload>" ;
 console.log(text);
     window.parent.postMessage(text,"*");
     }
     
 
     function _updateActivity(){ 
-        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>UPDATEACTIVITY</EventType><ANI>9976396383</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><Action>END</Action></payload> " ;
+        let text="<?xml version='1.0' encoding='utf-8' ?> <payload> <Type>CALL</Type><EventType>UPDATEACTIVITY</EventType><ANI>"+document.getElementById("myPhone").value+"</ANI><ExternalReferenceID>EA42D48FE</ExternalReferenceID><Action>END</Action></payload> " ;
 console.log(text);
     window.parent.postMessage(text,"*");
     }
@@ -33,9 +33,13 @@ console.log(text);
     Welcome
     <form>
         <fieldset>
-            <input type='button' id='btnopen' value='Accept' onclick='_formXMLPayload();' />
-            <input type='button' id='btnSendMsg' value='Notify' onclick='_notify();'/>
-            <input type='button' id='btnSendMsg' value='Transfer' onclick='_transferActivity();'/>
+
+            <input type="text" id="myPhone" value="123122">   
+            <input type='button' id='btnSendMsg' value='Dial' onclick='_notify();'/><br><br>
+            <input type='button' id='btnopen' value='Accept' onclick='_formXMLPayload();' /><br><br>
+            <input type="text" id="myTicketID" value="ticketID">   
+            <input type="text" id="myServiceID" value="serviceID">  
+            <input type='button' id='btnSendMsg' value='Transfer' onclick='_transferActivity();'/><br><br>
             <input type='button' id='btnSendMsg' value='End' onclick='_updateActivity();'/>
            
             <a href="login.html">Click</a>
